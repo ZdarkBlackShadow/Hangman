@@ -35,7 +35,8 @@ func Game() {
 		for _, element := range AlreadyTry {
 			fmt.Printf("%s ", element)
 		}
-		fmt.Printf("\n\nTry remaining : %d", Lap)
+		fmt.Printf("\n\nTry remaining : %d\n", Lap)
+		DisplayHangman(Lap)
 		fmt.Printf("\n\nEnter a letter or a word : ")
 		var choice string
 		fmt.Scan(&choice)

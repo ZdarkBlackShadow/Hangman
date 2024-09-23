@@ -9,9 +9,13 @@ import (
 )
 
 func main() {
-	WordToFinf := filereader.RandomWord(os.Args[1])
-	game.Start(WordToFinf)
-	DisplayFinish()
+	if len(os.Args) == 1 {
+		fmt.Printf("You forgot the file name, try with this command : go run . Ficher1.txt")
+	} else {
+		WordToFinf := filereader.RandomWord(os.Args[1])
+		game.Start(WordToFinf)
+		DisplayFinish()
+	}
 }
 
 func DisplayFinish() {
@@ -32,11 +36,12 @@ func DisplayFinish() {
 		}
 	} else {
 		game.ClearScreen()
-		fmt.Printf("Nice try\n")
+		fmt.Printf("Nice try.\n\n")
 		time.Sleep(2 * time.Second)
-		fmt.Printf("\nThe word was : %s.\n\n", game.Word)
+		fmt.Printf("The word was : %s.\n\n", game.Word)
+		game.DisplayHangman(0)
 		time.Sleep(2 * time.Second)
-		fmt.Printf("Do you want to retry ?\n(1) Yes  (2) No\n")
+		fmt.Printf("\n\nDo you want to retry ?\n(1) Yes  (2) No\n")
 		var choice string
 		fmt.Scan(&choice)
 		switch choice {
