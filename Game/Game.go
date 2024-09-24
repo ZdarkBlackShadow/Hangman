@@ -27,16 +27,38 @@ func Game() {
 	}
 	for !Finish {
 		ClearScreen()
-		fmt.Printf("==============================Hangman game =============================\n\nWord to Find : ")
+		fmt.Println(Red, " ============================== Hangman game ==============================")
+		fmt.Println(Yellow, "|                                                                          |")
+		temp := ""
 		for _, element := range ListToDisplay {
-			fmt.Printf("%s ", string(element))
+			temp += string(element) + " "
 		}
-		fmt.Printf("\n\nYou already try : ")
+		temp2 := ""
+		for i := 0; i < 31-len(temp); i++ {
+			temp2 += " "
+		}
+		fmt.Println(Yellow, "|", Violet, "                       Word to Find :", Green, temp, Yellow, temp2+"|")
+		fmt.Println(Yellow, "|                                                                          |")
+		temp = ""
+		c := 0
+		temp2 = ""
 		for _, element := range AlreadyTry {
-			fmt.Printf("%s ", element)
+			temp += element + " "
+			c += len(element) + 1
 		}
-		fmt.Printf("\n\nTry remaining : %d\n", Lap)
+		for i := 0; i < 35-c; i++ {
+			temp2 += " "
+		}
+		fmt.Println(Yellow, "|", White, "                You already try :", Gray, temp, Yellow, temp2+"|")
+		fmt.Println(Yellow, "|                                                                          |")
+		if Lap == 10 {
+			temp2 = ""
+		} else {
+			temp2 = " "
+		}
+		fmt.Println(Yellow, "|", Red, "                        Tries remaining :", Cyan, Lap, Yellow, temp2+"                         |")
 		DisplayHangman(Lap)
+		fmt.Println(Red, " ==========================================================================")
 		fmt.Printf("\n\nEnter a letter or a word : ")
 		var choice string
 		fmt.Scan(&choice)
@@ -71,4 +93,5 @@ func Game() {
 			}
 		}
 	}
+	DisplayFinish()
 }
