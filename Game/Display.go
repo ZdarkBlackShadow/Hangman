@@ -1,6 +1,9 @@
 package game
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 const (
 	Reset  = "\033[0m"
@@ -109,19 +112,24 @@ func DisplayHangman(nb int) {
 	}
 }
 
-func Formatage(c string, z int) string {
-	res := ""
-	l := len(c)
-	n := (z - l) / 2
-	if l%2 == 1 {
-		res += " "
-	}
-	for i := 0; i < n; i++ {
-		res += " "
-	}
-	res += c
-	for i := 0; i <= n+1; i++ {
-		res += " "
-	}
-	return res
+func Formatage() {
+	// Exemple de couleurs (pour les besoins de l'exemple, ce sont des chaînes vides)
+	Orange := "\033[31m"
+	Reset := "\033[0m" // Code de réinitialisation des couleurs
+
+	// Variable contenant le mot
+	// Longueur totale de l'espace dans lequel vous voulez centrer le mot
+	totalWidth := 74
+
+	// Calcul des espaces à gauche et à droite du mot
+	leftPadding := (totalWidth - len(Word)) / 2
+	rightPadding := totalWidth - len(Word) - leftPadding
+
+	// Création de la chaîne formatée avec le mot centré
+	fmt.Printf("%s |%s%s%s%s%s|%s\n",
+		Yellow,
+		strings.Repeat(" ", leftPadding), // Espaces à gauche
+		Orange, Word, Yellow,             // Couleurs et mot
+		strings.Repeat(" ", rightPadding), // Espaces à droite
+		Reset)
 }

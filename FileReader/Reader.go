@@ -18,44 +18,44 @@ func Reader(filename string) []string {
 	res := []string{}
 	content, error := ioutil.ReadFile("Data\\" + filename)
 	if error != nil {
-		fmt.Println("Error when opening file", error)
-		fmt.Printf("\n\n\n")
+		fmt.Println("Error when opening file")
+		fmt.Printf("\n\n")
 		findN := false
 		for i, element := range filename {
 			switch element {
 			case '1':
 				if i+1 != len(filename) && filename[i+1] == '0' {
-					fmt.Println("Try with this command : go run . Ficher10.txt")
+					fmt.Println("Try with this command : go run . File10.txt")
 				} else {
-					fmt.Println("Try with this command : go run . Ficher1.txt")
+					fmt.Println("Try with this command : go run . File1.txt")
 				}
 				findN = true
 			case '2':
-				fmt.Println("Try with this command : go run . Ficher2.txt")
+				fmt.Println("Try with this command : go run . File2File")
 				findN = true
 			case '3':
-				fmt.Println("Try with this command : go run . Ficher3.txt")
+				fmt.Println("Try with this command : go run . File3.txt")
 				findN = true
 			case '4':
-				fmt.Println("Try with this command : go run . Ficher4.txt")
+				fmt.Println("Try with this command : go run . File4.txt")
 				findN = true
 			case '5':
-				fmt.Println("Try with this command : go run . Ficher5.txt")
+				fmt.Println("Try with this command : go run . File5.txt")
 				findN = true
 			case '6':
-				fmt.Println("Try with this command : go run . Ficher6.txt")
+				fmt.Println("Try with this command : go run . File6.txt")
 				findN = true
 			case '7':
-				fmt.Println("Try with this command : go run . Ficher7.txt")
+				fmt.Println("Try with this command : go run . File7.txt")
 				findN = true
 			case '8':
-				fmt.Println("Try with this command : go run . Ficher8.txt")
+				fmt.Println("Try with this command : go run . File8.txt")
 				findN = true
 			case '9':
-				fmt.Println("Try with this command : go run . Ficher9.txt")
+				fmt.Println("Try with this command : go run . File9.txt")
 				findN = true
 			case '0':
-				fmt.Println("Try with this command : go run . Ficher10.txt")
+				fmt.Println("Try with this command : go run . File10.txt")
 				findN = true
 			}
 			if findN {
@@ -63,17 +63,19 @@ func Reader(filename string) []string {
 			}
 		}
 		if !findN {
-			fmt.Println("Try with this command : go run . Ficher1.txt")
+			fmt.Println("Try with this command : go run . File1.txt")
 		}
-		fmt.Printf("\n\n\n\n")
+		fmt.Printf("\n\n")
 	}
 	temp := ""
 	for _, element := range string(content) {
-		if element != '\n' {
+		if element != '\n' && element != '\r' {
 			temp += string(element)
 		} else {
-			res = append(res, temp)
-			temp = ""
+			if temp != "" {
+				res = append(res, temp)
+				temp = ""
+			}
 		}
 	}
 	return res

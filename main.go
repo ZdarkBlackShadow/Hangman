@@ -9,9 +9,12 @@ import (
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Printf("You forgot the file name, try with this command : go run . Ficher1.txt")
+		fmt.Printf("You forgot the file name, try with this command : go run . File1.txt")
 	} else {
-		WordToFinf := filereader.RandomWord(os.Args[1])
+		if !game.InGame {
+			game.Filename = os.Args[1]
+		}
+		WordToFinf := filereader.RandomWord(game.Filename)
 		game.Start(WordToFinf)
 		Continue := game.DisplayFinish()
 		if Continue {

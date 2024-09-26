@@ -14,6 +14,8 @@ import (
 var Lap int
 var Word string
 var Lenght int
+var Filename string
+var InGame bool = false
 
 func Start(word string) {
 	ClearScreen()
@@ -29,7 +31,10 @@ func Start(word string) {
 	fmt.Println(" |                                                                         |")
 	fmt.Println(Green, "**************************************************************************")
 	Word = strings.ToLower(word)
-	Lenght = len(word) - 1
+	InGame = true
+	fmt.Println(Word)
+	fmt.Println(Filename)
+	Lenght = len(word)
 	var choice string
 	fmt.Scan(&choice)
 	switch choice {

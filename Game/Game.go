@@ -13,10 +13,11 @@ func Game() {
 	rand.Seed(time.Now().UnixNano())
 	Finish = false
 	Win = false
+	RandomLetter := rune(Word[rand.Intn(Lenght)])
 	ListToDisplay := []rune{}
 	AlreadyTry := []string{}
+	AlreadyTryCorrect := []rune{RandomLetter}
 	LetterFind := 0
-	RandomLetter := rune(Word[rand.Intn(Lenght)])
 	for i := 0; i < Lenght; i++ {
 		if rune(Word[i]) == RandomLetter {
 			ListToDisplay = append(ListToDisplay, RandomLetter)
@@ -63,13 +64,26 @@ func Game() {
 		var choice string
 		fmt.Scan(&choice)
 		if len(choice) == 1 {
-			SubmitesLetter := choice[0]
+			SubmitesLetter := rune(choice[0])
 			FindInWord := false
 			for c := 0; c < Lenght; c++ {
-				if SubmitesLetter == Word[c] {
+				if SubmitesLetter == rune(Word[c]) && ListToDisplay[c] == '_' {
 					ListToDisplay[c] = rune(SubmitesLetter)
 					FindInWord = true
 					LetterFind++
+					AlreadyTryCorrect = append(AlreadyTryCorrect, rune(SubmitesLetter))
+				}
+			}
+			for _, element := range AlreadyTryCorrect {
+				if SubmitesLetter == element {
+					FindInWord = true
+				}
+			}
+			for _, element := range AlreadyTry {
+				if len(element) == 1 {
+					if SubmitesLetter == rune(element[0]) {
+						FindInWord = true
+					}
 				}
 			}
 			if !FindInWord {
@@ -80,8 +94,16 @@ func Game() {
 			if choice == Word {
 				LetterFind = Lenght
 			} else {
-				AlreadyTry = append(AlreadyTry, choice)
-				Lap -= 2
+				IsAlreadyTry := false
+				for _, element := range AlreadyTry {
+					if len(element) != 1 && choice == element {
+						IsAlreadyTry = true
+					}
+				}
+				if !IsAlreadyTry {
+					AlreadyTry = append(AlreadyTry, choice)
+					Lap -= 2
+				}
 			}
 		}
 		if LetterFind == Lenght {
@@ -93,5 +115,4 @@ func Game() {
 			}
 		}
 	}
-	DisplayFinish()
 }
