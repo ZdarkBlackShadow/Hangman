@@ -4,17 +4,24 @@ import (
 	"fmt"
 	"io/ioutil"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
-// ficher ou l'on lit les ficher txt
-func RandomWord(filename string) string {
+func RandomWord(filename string) (string, int) {
+	//Function who return a random word from a file.
 	rand.Seed(time.Now().UnixNano())
 	L := Reader(filename)
-	return L[rand.Intn(len(L))]
+	t, _ := strconv.Atoi(string(filename[4]))
+	res := int(t)
+	if filename[4] == '1' && filename[5] == '0' {
+		res = 10
+	}
+	return L[rand.Intn(len(L))], res
 }
 
 func Reader(filename string) []string {
+	//Function who Read a file with word, return a list of string, each element of this lis is one word.
 	res := []string{}
 	content, error := ioutil.ReadFile("Data\\" + filename)
 	if error != nil {

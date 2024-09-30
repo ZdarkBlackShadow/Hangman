@@ -14,8 +14,9 @@ func main() {
 		if !game.InGame {
 			game.Filename = os.Args[1]
 		}
-		WordToFinf := filereader.RandomWord(game.Filename)
-		game.Start(WordToFinf)
+		temp1, temp2 := filereader.RandomWord(game.Filename)
+		game.Difficulte = temp2
+		game.Start(temp1)
 		Continue := game.DisplayFinish()
 		if Continue {
 			main()

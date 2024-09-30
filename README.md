@@ -10,10 +10,10 @@ It is a project in go langage to realise a hangman game. The project have differ
 ## Instructions
 - **Instalation**
     - Go to the directory where you want to install the game
-    - Open a terminal in this directory
+    - Open a terminal in this directory (Go in your File Explorer, open the folder where you stock the game, right click, Show more option, Open in Terminal)
     - Type **_git clone https://github.com/ZdarkBlackShadow/Hangman.git_**
 - **Démarrage**
-    - 1 : Open a terminal in this directory
+    - 1 : Open a terminal in this directory (Go in your File Explorer, open the folder where you stock the game, right click, Show more option, Open in Terminal)
     - 2 : Type **_cd src_**
     - 3 : Type **_go run . FFile.txt_**
 - **Have fun**

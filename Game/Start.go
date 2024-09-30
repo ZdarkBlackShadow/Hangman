@@ -9,31 +9,36 @@ import (
 	"time"
 )
 
-//ficher ou l'on met le debut du jeu
-
-var Lap int
-var Word string
-var Lenght int
-var Filename string
-var InGame bool = false
+var Tries int           //variable who indicate the number of tries remaining
+var Word string         //variable who stock the word to find
+var Lenght int          // variable who stock the lenght of the world
+var Filename string     //variable who stock the filename
+var InGame bool = false //varible who indicate if we are in the game or not
+var NbGame int = 0      // variable who indicate the number of game of hangman
+var Difficulte int      // variable who indicate the difficulte
 
 func Start(word string) {
+	/*
+		Function who are called at the start of the game who propose
+		to display the rules or not.
+		Send in Game() after.
+	*/
 	ClearScreen()
-	Lap = 10
-	fmt.Println(Red, " ============================== Hangman game =============================")
-	fmt.Println("")
-	fmt.Println(Green, " *************************************************************************")
-	fmt.Println(Yellow, "|", Cyan, "                      Welcome to the hangman game.                   ", Yellow, "|")
-	fmt.Println(" |                                                                         |")
-	fmt.Println(" |", Cyan, "                Would you like a reminder of the rules ?             ", Yellow, "|")
-	fmt.Println(" |                                                                         |")
-	fmt.Println(" |", Cyan, "                (1) Yes                         (2) No               ", Yellow, "|")
-	fmt.Println(" |                                                                         |")
-	fmt.Println(Green, "**************************************************************************")
+	NbGame += 1
+	Tries = 12
+	fmt.Println(Red, " =============================== Hangman game =============================")
+	fmt.Println()
+	fmt.Println(Green, " **************************************************************************")
+	DisplayNbGameDifficulty()
+	fmt.Println(Yellow, "|", Cyan, "                      Welcome to the hangman game.                    ", Yellow, "|")
+	fmt.Println(" |                                                                          |")
+	fmt.Println(" |", Cyan, "                Would you like a reminder of the rules ?              ", Yellow, "|")
+	fmt.Println(" |                                                                          |")
+	fmt.Println(" |", Cyan, "                (1) Yes                         (2) No                ", Yellow, "|")
+	fmt.Println(" |                                                                          |")
+	fmt.Println(Green, "***************************************************************************")
 	Word = strings.ToLower(word)
 	InGame = true
-	fmt.Println(Word)
-	fmt.Println(Filename)
 	Lenght = len(word)
 	var choice string
 	fmt.Scan(&choice)
@@ -48,6 +53,10 @@ func Start(word string) {
 }
 
 func DisplayRules() {
+	/*
+		Function who are called when the user
+		want to see the rules.
+	*/
 	ClearScreen()
 	fmt.Println(Red, "============================== Hangman game =============================")
 	fmt.Println()
@@ -102,17 +111,14 @@ func DisplayRules() {
 }
 
 func ClearScreen() {
+	//Function to called when we want to clear the Terminal
 	var cmd *exec.Cmd
-	// Détecter le système d'exploitation
 	switch runtime.GOOS {
 	case "windows":
-		// Commande pour Windows
 		cmd = exec.Command("cmd", "/c", "cls")
 	default:
-		// Commande pour les systèmes Unix-like
 		cmd = exec.Command("clear")
 	}
-	// Définir la sortie de la commande sur Stdout
 	cmd.Stdout = os.Stdout
 	cmd.Run()
 }

@@ -2,6 +2,7 @@ package game
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -19,6 +20,7 @@ const (
 )
 
 func DisplayHangman(nb int) {
+	//Function who display the progression of the hangman
 	switch nb {
 	case 10:
 		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
@@ -113,23 +115,61 @@ func DisplayHangman(nb int) {
 }
 
 func Formatage() {
-	// Exemple de couleurs (pour les besoins de l'exemple, ce sont des chaînes vides)
+	//Function to format with space the word to find
 	Orange := "\033[31m"
-	Reset := "\033[0m" // Code de réinitialisation des couleurs
-
-	// Variable contenant le mot
-	// Longueur totale de l'espace dans lequel vous voulez centrer le mot
 	totalWidth := 74
-
-	// Calcul des espaces à gauche et à droite du mot
 	leftPadding := (totalWidth - len(Word)) / 2
 	rightPadding := totalWidth - len(Word) - leftPadding
+	fmt.Printf("%s |%s%s%s%s%s|%s\n", Yellow, strings.Repeat(" ", leftPadding), Orange, Word, Yellow, strings.Repeat(" ", rightPadding), Reset)
+}
 
-	// Création de la chaîne formatée avec le mot centré
-	fmt.Printf("%s |%s%s%s%s%s|%s\n",
-		Yellow,
-		strings.Repeat(" ", leftPadding), // Espaces à gauche
-		Orange, Word, Yellow,             // Couleurs et mot
-		strings.Repeat(" ", rightPadding), // Espaces à droite
-		Reset)
+func FormatageDisplay(c string) string {
+	res := Yellow + " |" + Gray
+	l := len(c)
+	n := (72 - l) / 2
+	if l%2 == 1 {
+		res += " "
+	}
+	for i := 0; i < n; i++ {
+		res += " "
+	}
+	res += c
+	for i := 0; i <= n+1; i++ {
+		res += " "
+	}
+	return res + Yellow + "|"
+}
+
+func DisplayAlreadyTry(L []string) {
+	fmt.Println(Yellow, "|                                                                          |")
+	fmt.Println(Yellow, "|", White, "                         You already try :                            ", Yellow, "|")
+	temp := 0
+	ToDisplay := ""
+	for _, element := range L {
+		if element != "" {
+			if temp+len(element) > 72 {
+				fmt.Println(FormatageDisplay(ToDisplay))
+				ToDisplay = ""
+				temp = 0
+			}
+			temp += len(element) + 2
+			if element == L[len(L)-1] {
+				ToDisplay += element
+			} else {
+				ToDisplay += element + ", "
+			}
+		}
+	}
+	fmt.Println(FormatageDisplay(ToDisplay))
+	fmt.Println(Yellow, "|                                                                          |")
+}
+
+func DisplayNbGameDifficulty() {
+	fmt.Println(Yellow, "|                                                                          |")
+	t := ""
+	for i := 0; i < 41-len(strconv.Itoa(NbGame))-len(strconv.Itoa(Difficulte)); i++ {
+		t += " "
+	}
+	fmt.Println(Yellow, "|", Green, "Game number : "+strconv.Itoa(NbGame)+t, Red, "Difficulty : "+strconv.Itoa(Difficulte), Yellow, "|")
+	fmt.Println(Yellow, "|                                                                          |")
 }
