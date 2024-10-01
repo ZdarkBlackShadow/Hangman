@@ -1,0 +1,77 @@
+0Y |                         B       _______ Y                                  |
+Y |                          B     |     W|Y                                    |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+9Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+8Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+7Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |     W/|Y                                   |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+6Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |     W/|\Y                                  |
+Y |                         B      | Y                                         |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+5Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |     W/|\Y                                  |
+Y |                         B      |     W/     Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+4Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |     W/|\Y                                  |
+Y |                         B      |     W/ \   Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+3Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |    W\_|\Y                                  |
+Y |                         B      |     W/ \   Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+2Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W O Y                                  |
+Y |                          B     |    W\_|_/Y                                 |
+Y |                         B      |     W/ \   Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+1Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W o Y                                  |
+Y |                          B     |    W\_|_/Y                                 |
+Y |                         B      |     W/ \   Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |
+0Y |                         B       _______ Y                                  |
+Y |                          B     |      W|Y                                   |
+Y |                         B      |     W[x] Y                                 |
+Y |                          B     |    W\_|_/Y                                 |
+Y |                         B      |     W/ \   Y                               |
+Y |                         B      | Y                                         |
+Y |                         B _____|_____ Y                                    |

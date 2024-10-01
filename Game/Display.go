@@ -2,6 +2,7 @@ package game
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strconv"
 	"strings"
 )
@@ -19,99 +20,47 @@ const (
 	Orange = "\033[38;5;208m"
 )
 
-func DisplayHangman(nb int) {
-	//Function who display the progression of the hangman
-	switch nb {
-	case 10:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 9:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 8:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 7:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 6:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/|\\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 5:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/|\\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ ", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 4:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/|\\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ \\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 3:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |  ", White, "\\_|\\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ \\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 2:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "O", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |  ", White, "\\_|_/", Yellow, "                              |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ \\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	case 1:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "o", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |  ", White, "\\_|_/", Yellow, "                              |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ \\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-	default:
-		fmt.Println(Yellow, "|                         ", Brown, "      _______", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |    ", White, "|", Yellow, "                                |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "[x]", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |  ", White, "\\_|_/", Yellow, "                              |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |   ", White, "/ \\", Yellow, "                               |")
-		fmt.Println(Yellow, "|                         ", Brown, "     |", Yellow, "                                       |")
-		fmt.Println(Yellow, "|                         ", Brown, "_____|_____", Yellow, "                                  |")
-
+func DisplayHangman2(nb int) {
+	content, error := ioutil.ReadFile("Data\\Animation\\Animation.txt")
+	if error != nil {
+		fmt.Println("error while opening animation.txt", error)
 	}
+	t := nb == 0
+	if nb == 10 {
+		nb = 0
+	}
+	temp := ""
+	count := 7
+	add := false
+	for _, ele := range string(content) {
+		if !add && ele == rune(48+nb) {
+			if t {
+				t = false
+			} else {
+				add = true
+			}
+		} else if add {
+			switch ele {
+			case 'Y':
+				temp += Yellow
+			case 'B':
+				temp += Brown
+			case 'W':
+				temp += White
+			case '\n':
+				count--
+				if count != 0 {
+					temp += "\n"
+				}
+			default:
+				temp += string(ele)
+			}
+		}
+		if count <= 0 {
+			break
+		}
+	}
+	fmt.Println(temp)
 }
 
 func Formatage() {

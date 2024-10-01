@@ -40,7 +40,7 @@ func DisplayFinish() bool {
 		fmt.Println(Yellow, "|                                                                          |")
 		Formatage()
 		fmt.Println(Yellow, "|                                                                          |")
-		DisplayHangman(0)
+		DisplayHangman2(0)
 		fmt.Println(Yellow, "|                                                                          |")
 		fmt.Println(Yellow, "|                          Do you want to replay ?                       ", Yellow, "|")
 		fmt.Println(Yellow, "|                                                                          |")
