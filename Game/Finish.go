@@ -9,7 +9,7 @@ func DisplayFinish() bool {
 	/*
 		Function who take in charge the end of the Game.
 	*/
-	if Win {
+	if Win { //case of victory
 		ClearScreen()
 		fmt.Println(Red, " ============================== Hangman game ==============================")
 		fmt.Println()
@@ -30,7 +30,7 @@ func DisplayFinish() bool {
 		default:
 			return DisplayFinish()
 		}
-	} else {
+	} else { //case of defeat
 		ClearScreen()
 		fmt.Println(Red, " ============================== Hangman game ==============================")
 		fmt.Println()
@@ -125,7 +125,7 @@ func ChangeLevelUp() bool {
 }
 
 func ChangeLevelDown() bool {
-	//Function who propose to decrease the difficulty
+	//Function who propose to the user to decrease the difficulty
 	ClearScreen()
 	fmt.Println(Red, " ============================== Hangman game ==============================")
 	fmt.Println()

@@ -94,7 +94,7 @@ func Game() {
 			} else {
 				if temp == Word {
 					LetterFind = Lenght
-				} else {
+				} else { //The word that the user send is false so we add in AlreadyTry list
 					IsAlreadyTry := false
 					for _, element := range AlreadyTry {
 						if len(element) != 1 && temp == element {
@@ -108,7 +108,7 @@ func Game() {
 				}
 			}
 		}
-		if LetterFind == Lenght {
+		if LetterFind == Lenght { // if all letter are found, so the user win.
 			Finish = true
 			Win = true
 		} else {
@@ -120,6 +120,9 @@ func Game() {
 }
 
 func verif(answer string) bool {
+	/*
+		Function that check if the user's answer is corectly formated
+	*/
 	for _, element := range answer {
 		if !(element >= 'a' && element <= 'z') {
 			return false

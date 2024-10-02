@@ -20,5 +20,5 @@ It is a project in go langage to realise a hangman game. The project have differ
     - Follow the terminal's instructions.
 - **Additional**
     - If you want to increase the dificulty, when you're type **_go run . File1.txt_**, replace **_File1.txt_** by **_File2.txt_**. You can do that until **_File10.TxFile_**.
-## Auteurs
+## Auteur
 - **Adrien Lecomte** [My github](https://github.com/ZdarkBlackShadow)

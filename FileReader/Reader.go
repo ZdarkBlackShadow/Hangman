@@ -21,14 +21,14 @@ func RandomWord(filename string) (string, int) {
 }
 
 func Reader(filename string) []string {
-	//Function who Read a file with word, return a list of string, each element of this lis is one word.
+	//Function who Read a file with word, return a list of string, each element of this list is one word.
 	res := []string{}
 	content, error := ioutil.ReadFile("Data\\Words\\" + filename)
 	if error != nil {
 		fmt.Println("Error when opening file")
 		fmt.Printf("\n\n")
 		findN := false
-		for i, element := range filename {
+		for i, element := range filename {//error management
 			switch element {
 			case '1':
 				if i+1 != len(filename) && filename[i+1] == '0' {

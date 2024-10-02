@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	if len(os.Args) == 1 {
+	if len(os.Args) == 1 { //case when the user forgo the filename
 		fmt.Printf("You forgot the file name, try with this command : go run . File1.txt")
 	} else {
 		if !game.InGame {
@@ -18,7 +18,7 @@ func main() {
 		game.Difficulte = temp2
 		game.Start(temp1)
 		Continue := game.DisplayFinish()
-		if Continue {
+		if Continue { //the user want to replay
 			main()
 		}
 	}

@@ -76,7 +76,7 @@ func DisplayRules() {
 	case "1":
 		ClearScreen()
 		Game()
-	case "2":
+	case "2": //a litle joke from me
 		ClearScreen()
 		time.Sleep(1 * time.Second)
 		fmt.Println(Red, "Too bad for you. You start anyway.")
