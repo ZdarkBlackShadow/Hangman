@@ -21,7 +21,7 @@ const (
 )
 
 func DisplayHangman2(nb int) {
-	content, error := ioutil.ReadFile("Data\\Animation\\Animation.txt")
+	content, error := ioutil.ReadFile("Data/Animation/Animation.txt")
 	if error != nil {
 		fmt.Println("error while opening animation.txt", error)
 	}

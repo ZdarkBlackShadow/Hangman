@@ -17,7 +17,7 @@ func Game() {
 		Function who are in charge of the game.
 	*/
 	rand.Seed(time.Now().UnixNano())
-	Tries = 12
+	Tries = 10
 	Finish = false
 	Win = false
 	RandomLetter := rune(Word[rand.Intn(Lenght)])
